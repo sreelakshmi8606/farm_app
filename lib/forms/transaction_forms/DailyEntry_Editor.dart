@@ -322,7 +322,7 @@ class _DailyEntryState extends State<DailyEntry> {
           if (_FormKey.currentState!.validate()) {}
           Box box = Hive.box('Farm');
           model.date = selectedDate;
-          model.FarmId = box.get('FarmId').toString();
+          //model.FarmId = box.get('FarmId').toString();
           model.BatchId = box.get('BatchID').toString();
           model.FarmId = box.get('FarmID');
           model.FeedQuantity = double.parse(feedQtyInputcontroller.text);

@@ -23,7 +23,7 @@ class DailyEntryFormDataModel {
   DailyEntryFormDataModel copyWith({
     DateTime? date,
     String? BatchId,
-    String? farmId,
+    String? FarmId,
     num? FeedQuantity,
     num? MedicineQuantity,
     int? NumberDead,
@@ -32,7 +32,7 @@ class DailyEntryFormDataModel {
     return DailyEntryFormDataModel(
       date: date ?? this.date,
       BatchId: BatchId ?? this.BatchId,
-      FarmId: farmId ?? this.FarmId,
+      FarmId: FarmId ?? this.FarmId,
       FeedQuantity: FeedQuantity ?? this.FeedQuantity,
       MedicineQuantity: MedicineQuantity ?? this.MedicineQuantity,
       NumberDead: NumberDead ?? this.NumberDead,
@@ -44,7 +44,7 @@ class DailyEntryFormDataModel {
     return {
       'date': date?.millisecondsSinceEpoch,
       'BatchId': BatchId,
-      'farmId': FarmId,
+      'FarmId': FarmId,
       'FeedQuantity': FeedQuantity,
       'MedicineQuantity': MedicineQuantity,
       'NumberDead': NumberDead,
@@ -57,7 +57,7 @@ class DailyEntryFormDataModel {
       date: DateTime.fromMillisecondsSinceEpoch(
           int.parse(map['date'] ?? '0') * 1000),
       BatchId: map['BatchId'],
-      FarmId: map['farmId'],
+      FarmId: map['FarmId'],
       FeedQuantity: map['FeedQuantity'],
       MedicineQuantity: map['MedicineQuantity'],
       NumberDead: map['NumberDead'],
@@ -74,7 +74,7 @@ class DailyEntryFormDataModel {
     return 'DailyEntryFormDataModel('
         'date: $date, '
         'BatchId: $BatchId, '
-        'farmId: $FarmId,'
+        'FarmId: $FarmId,'
         'FeedQuantity: $FeedQuantity,'
         'MedicineQuantity: $MedicineQuantity,'
         'NumberDead: $NumberDead,'
