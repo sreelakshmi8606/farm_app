@@ -56,7 +56,6 @@ class _FarmMasterState extends State<FarmMaster> {
   TextEditingController batchInputcontroller = TextEditingController();
 
 
-
   WebserviceHelper web = WebserviceHelper();
   @override
   Widget build(BuildContext context) {
