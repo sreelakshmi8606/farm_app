@@ -105,7 +105,7 @@ class _FarmMasterState extends State<FarmMaster> {
                                 hintText: 'Farm Name : ',
                                 hintStyle: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.white),
+                                    color: Colors.black),
 
                               ),
                             ),
