@@ -13,7 +13,7 @@ class DailyEntry extends StatefulWidget {
   // DailyEntry({Key? key,required this.NumberDead,required this.AverageWeight}) : super(key: key);
   late DateTime date;
   late String BatchId;
-  late String farmId;
+  late String FarmId;
   late num FeedQuantity;
   late num MedicineQuantity;
   late int NumberDead;
@@ -33,6 +33,7 @@ class _DailyEntryState extends State<DailyEntry> {
   TextEditingController medicineQtyInputcontroller =  TextEditingController();
   TextEditingController deadInputcontroller =  TextEditingController();
   TextEditingController weightInputcontroller =  TextEditingController();
+  TextEditingController farmidinputController =  TextEditingController();
 
   late DateTime date;
   late String date1;
@@ -102,7 +103,37 @@ class _DailyEntryState extends State<DailyEntry> {
                               return Validate.txtValidator(value!);
                             },
                             onSaved: (String? value) {
-                              model.BatchId = value!;
+                              model.FarmId = value!;
+                            },
+                            controller: farmidInputcontroller,
+                            keyboardType: TextInputType.text,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Farm ID',
+                              hintStyle: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black38),
+                              icon: Icon(
+                                Icons.confirmation_num_outlined,
+                                color: Colors.black38,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 10),
+                          padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                          decoration: kBoxdecorationStyle,
+                          child: TextFormField(
+                            validator: (value) {
+                              return Validate.txtValidator(value!);
+                            },
+                            onSaved: (String? value) {
+                              model.FarmId = value!;
                             },
                             controller: batchInputcontroller,
                             keyboardType: TextInputType.text,
@@ -291,8 +322,9 @@ class _DailyEntryState extends State<DailyEntry> {
           if (_FormKey.currentState!.validate()) {}
           Box box = Hive.box('Farm');
           model.date = selectedDate;
+          model.FarmId = box.get('FarmId').toString();
           model.BatchId = box.get('BatchID').toString();
-          model.farmId = box.get('FarmID');
+          model.FarmId = box.get('FarmID');
           model.FeedQuantity = double.parse(feedQtyInputcontroller.text);
           model.MedicineQuantity =
               double.parse(medicineQtyInputcontroller.text);

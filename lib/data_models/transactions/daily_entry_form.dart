@@ -5,7 +5,7 @@ import 'dart:convert';
 class DailyEntryFormDataModel {
   DateTime? date;
   String? BatchId;
-  String? farmId;
+  String? FarmId;
   num? FeedQuantity;
   num? MedicineQuantity;
   int? NumberDead;
@@ -14,7 +14,7 @@ class DailyEntryFormDataModel {
   DailyEntryFormDataModel(
       {required this.date,
       required this.BatchId,
-      required this.farmId,
+      required this.FarmId,
       required this.FeedQuantity,
       required this.MedicineQuantity,
       required this.NumberDead,
@@ -32,7 +32,7 @@ class DailyEntryFormDataModel {
     return DailyEntryFormDataModel(
       date: date ?? this.date,
       BatchId: BatchId ?? this.BatchId,
-      farmId: farmId ?? this.farmId,
+      FarmId: farmId ?? this.FarmId,
       FeedQuantity: FeedQuantity ?? this.FeedQuantity,
       MedicineQuantity: MedicineQuantity ?? this.MedicineQuantity,
       NumberDead: NumberDead ?? this.NumberDead,
@@ -44,7 +44,7 @@ class DailyEntryFormDataModel {
     return {
       'date': date?.millisecondsSinceEpoch,
       'BatchId': BatchId,
-      'farmId': farmId,
+      'farmId': FarmId,
       'FeedQuantity': FeedQuantity,
       'MedicineQuantity': MedicineQuantity,
       'NumberDead': NumberDead,
@@ -57,7 +57,7 @@ class DailyEntryFormDataModel {
       date: DateTime.fromMillisecondsSinceEpoch(
           int.parse(map['date'] ?? '0') * 1000),
       BatchId: map['BatchId'],
-      farmId: map['farmId'],
+      FarmId: map['farmId'],
       FeedQuantity: map['FeedQuantity'],
       MedicineQuantity: map['MedicineQuantity'],
       NumberDead: map['NumberDead'],
@@ -74,7 +74,7 @@ class DailyEntryFormDataModel {
     return 'DailyEntryFormDataModel('
         'date: $date, '
         'BatchId: $BatchId, '
-        'farmId: $farmId,'
+        'farmId: $FarmId,'
         'FeedQuantity: $FeedQuantity,'
         'MedicineQuantity: $MedicineQuantity,'
         'NumberDead: $NumberDead,'
@@ -89,7 +89,7 @@ class DailyEntryFormDataModel {
     return other is DailyEntryFormDataModel &&
         other.date == date &&
         other.BatchId == BatchId &&
-        other.farmId == farmId &&
+        other.FarmId == FarmId &&
         other.FeedQuantity == FeedQuantity &&
         other.MedicineQuantity == MedicineQuantity &&
         other.NumberDead == NumberDead &&
@@ -100,7 +100,7 @@ class DailyEntryFormDataModel {
   int get hashCode {
     return date.hashCode ^
         BatchId.hashCode ^
-        farmId.hashCode ^
+        FarmId.hashCode ^
         FeedQuantity.hashCode ^
         MedicineQuantity.hashCode ^
         NumberDead.hashCode ^

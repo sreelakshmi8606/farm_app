@@ -23,7 +23,7 @@ class FarmMaster extends StatefulWidget {
 }
 
 class _FarmMasterState extends State<FarmMaster> {
-  var uuid=Uuid();
+  var uuid = Uuid();
 
   Map<String, String> selectedValueMap = Map();
   DateTime selectedDate = DateTime.now();
@@ -55,7 +55,6 @@ class _FarmMasterState extends State<FarmMaster> {
   TextEditingController ledgerInputcontroller = TextEditingController();
   TextEditingController batchInputcontroller = TextEditingController();
 
-
   WebserviceHelper web = WebserviceHelper();
   @override
   Widget build(BuildContext context) {
@@ -82,14 +81,12 @@ class _FarmMasterState extends State<FarmMaster> {
                         Padding(
                           padding: const EdgeInsets.only(left: 155.0),
                           child: Container(
-                           // margin: EdgeInsets.symmetric(horizontal: 10),
-                            padding:
-                                EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                            // margin: EdgeInsets.symmetric(horizontal: 10),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 10),
                             decoration: BoxDecoration(
-                              color: Colors.lightGreen.shade900,
-                              borderRadius: BorderRadius.circular(00)
-                            ),
-
+                                color: Colors.lightGreen.shade900,
+                                borderRadius: BorderRadius.circular(00)),
 
                             child: TextFormField(
                               validator: (value) {
@@ -106,7 +103,6 @@ class _FarmMasterState extends State<FarmMaster> {
                                 hintStyle: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black),
-
                               ),
                             ),
                           ),
@@ -160,7 +156,7 @@ class _FarmMasterState extends State<FarmMaster> {
                             keyboardType: TextInputType.number,
                             inputFormatters: <TextInputFormatter>[
                               // ignore: deprecated_member_use
-                             // WhitelistingTextInputFormatter.digitsOnly,
+                              // WhitelistingTextInputFormatter.digitsOnly,
                             ],
                             decoration: InputDecoration(
                               border: InputBorder.none,
@@ -371,9 +367,10 @@ class _FarmMasterState extends State<FarmMaster> {
           print('Data : ${model.toJson()}');
           await web.farmRecord(model: model);
           uuid.v4();
-          },
+        },
         child: Icon(Icons.check_outlined),
-        backgroundColor: Colors.lightGreen.shade900,      ),
+        backgroundColor: Colors.lightGreen.shade900,
+      ),
     );
   }
 
